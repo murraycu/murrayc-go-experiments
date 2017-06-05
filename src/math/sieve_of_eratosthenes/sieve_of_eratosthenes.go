@@ -13,7 +13,14 @@ func print_primes(n int) {
 
   // Mark all multiples as not primes.
   for i := 2; i <= sq; i++ {
-    j := i * 2;
+    // If i is already marked as not prime then all its multiples have been
+    // marked already too.
+    if not_prime[i] {
+      continue;
+    }
+
+    // Start at i squared.
+    j := i * i;
 
     for j < n {
       not_prime[j] = true
